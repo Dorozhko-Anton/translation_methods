@@ -39,7 +39,9 @@ public class Buffer implements IBuffer {
         } else {
             column++;
         }
-        return buffer.charAt(currentPos++);
+        int res = buffer.charAt(currentPos);
+        currentPos++;
+        return res;
     }
 
     @Override

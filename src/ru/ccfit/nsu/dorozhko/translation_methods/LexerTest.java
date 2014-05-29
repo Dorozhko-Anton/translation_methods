@@ -34,6 +34,7 @@ public class LexerTest extends Assert {
                 "}"));
 
         lexerRight = new Lexer(bufferRight);
+
     }
 
     @Test(expected = IOException.class)
@@ -42,26 +43,26 @@ public class LexerTest extends Assert {
             lexerWithBadBuffer.getToken();
         }
         assertEquals(Lexer.Type.LEFT_PARENTHESIS, lexerWithBadBuffer.getToken().type);
-        assertEquals(Lexer.Type.ATOM, lexerWithBadBuffer.getToken().type);
+        assertEquals(Lexer.Type.NAME, lexerWithBadBuffer.getToken().type);
         assertEquals(Lexer.Type.RIGHT_PARENTHESIS, lexerWithBadBuffer.getToken().type);
-        assertEquals(Lexer.Type.ATOM, lexerWithBadBuffer.getToken().type);
+        assertEquals(Lexer.Type.NAME, lexerWithBadBuffer.getToken().type);
 
     }
 
     @Test
     public void testGetTokenWithRightBuffer() throws Exception {
-        assertEquals(Lexer.Type.ATOM, lexerRight.getToken().type);
-        assertEquals(Lexer.Type.ATOM, lexerRight.getToken().type);
+        assertEquals(Lexer.Type.DOUBLE, lexerRight.getToken().type);
+        assertEquals(Lexer.Type.NAME, lexerRight.getToken().type);
         assertEquals(Lexer.Type.LEFT_PARENTHESIS, lexerRight.getToken().type);
-        assertEquals(Lexer.Type.ATOM, lexerRight.getToken().type);
-        assertEquals(Lexer.Type.ATOM, lexerRight.getToken().type);
+        assertEquals(Lexer.Type.INT, lexerRight.getToken().type);
+        assertEquals(Lexer.Type.NAME, lexerRight.getToken().type);
         assertEquals(Lexer.Type.RIGHT_PARENTHESIS, lexerRight.getToken().type);
         assertEquals(Lexer.Type.LEFT_BRACES, lexerRight.getToken().type);
-        assertEquals(Lexer.Type.ATOM, lexerRight.getToken().type);
+        assertEquals(Lexer.Type.NAME, lexerRight.getToken().type);
         assertEquals(Lexer.Type.EQUALS, lexerRight.getToken().type);
         assertEquals(Lexer.Type.NUMBER, lexerRight.getToken().type);
         assertEquals(Lexer.Type.SEMICOLON, lexerRight.getToken().type);
-        assertEquals(Lexer.Type.ATOM, lexerRight.getToken().type);
+        assertEquals(Lexer.Type.RETURN, lexerRight.getToken().type);
         Lexer.Token token = lexerRight.getToken();
         //assertEquals(Lexer.Type.NUMBER, lexerRight.getToken().type);
 
